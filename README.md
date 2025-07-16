@@ -212,7 +212,7 @@ const message = new NDEFMessage()
 // TypeScript infers: NDEFMessage<[NDEFRecordWellKnownURI<https://example.com>]>
 
 // Later modifications lose precise type information
-message = message.remove()
+message.remove()
 // TypeScript now still sees: NDEFMessage<[NDEFRecordWellKnownURI<https://example.com>]> - lost precise typing!
 
 // Type information is no longer accurate
