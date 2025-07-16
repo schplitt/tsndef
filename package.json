@@ -1,0 +1,64 @@
+{
+  "name": "tsndef",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.12.4",
+  "description": "A modern, type-safe TypeScript library for creating and parsing NDEF (NFC Data Exchange Format) messages with full compile-time type checking and intelligent autocompletion.",
+  "author": "schplitt",
+  "license": "MIT",
+  "homepage": "https://github.com/schplitt/tsndef#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schplitt/tsndef.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gugustinette/create-tsdown/issues"
+  },
+  "keywords": [
+    "nfc",
+    "ndef",
+    "typescript",
+    "type-safe",
+    "nfc-data-exchange-format",
+    "near-field-communication",
+    "mobile",
+    "android",
+    "ios",
+    "web-nfc"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build": "tsdown",
+    "release": "bumpp && pnpm publish",
+    "prepack": "pnpm build",
+    "prepublishOnly": "pnpm lint && pnpm test"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:lint",
+    "@types/node": "catalog:types",
+    "bumpp": "catalog:dev",
+    "changelogen": "catalog:dev",
+    "eslint": "catalog:lint",
+    "lint-staged": "catalog:lint",
+    "simple-git-hooks": "catalog:lint",
+    "tsdown": "catalog:bundeling",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:test"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && pnpm dlx lint-staged"
+  }
+}
