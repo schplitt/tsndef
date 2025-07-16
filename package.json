@@ -1,7 +1,7 @@
 {
   "name": "tsndef",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.12.4",
   "description": "A modern, type-safe TypeScript library for creating and parsing NDEF (NFC Data Exchange Format) messages with full compile-time type checking and intelligent autocompletion.",
   "author": "schplitt",
