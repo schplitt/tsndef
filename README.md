@@ -5,13 +5,11 @@
 [![bundle][bundle-src]][bundle-href]
 [![License][license-src]][license-href]
 
-Create and parse **NDEF** (NFC Data Exchange Format) messages in TypeScript/JavaScript with full compile-time types and smart autocompletion. Works in the **browser (Web NFC)** and **Node**.
+A modern, type-safe TypeScript library for creating and parsing NDEF (NFC Data Exchange Format) messages with full compile-time type checking and intelligent autocompletion.
 
 - ✅ Type-safe records (URI, JSON, text, media…)
 - 🚀 Zero deps, tree-shakable ESM
 - 🧪 Well-tested parsing/serialization with robust errors
-
-> **What's NDEF / Web NFC?** See MDN's [**NDEFReader**](https://developer.mozilla.org/en-US/docs/Web/API/NDEFReader) and Chrome's [**Web NFC**](https://developer.chrome.com/docs/capabilities/web-apis/nfc) overview.
 
 ## ✨ Features
 
@@ -130,46 +128,6 @@ const complexMessage = new NDEFMessage()
 
 // Convert to bytes for NFC tag writing
 const nfcBytes = await complexMessage.toBytes()
-```
-
-### Web NFC Browser Integration
-
-Work with the browser's [Web NFC API](https://developer.mozilla.org/en-US/docs/Web/API/Web_NFC_API) using `NDEFReader`:
-
-```typescript
-import { parseNDEFMessage, createNDEFRecordWellKnownURI, NDEFMessage } from 'tsndef'
-
-// Reading NFC tags in the browser
-const reader = new NDEFReader()
-await reader.scan()
-
-reader.addEventListener('reading', ({ message }) => {
-  // Convert Web NFC message to tsndef format
-  const records = message.records.map(record => ({
-    tnf: record.recordType === 'url' ? 'well-known' : 'media',
-    type: record.recordType === 'url' ? 'U' : record.mediaType || 'text/plain',
-    payload: record.data
-  }))
-  
-  // Process with type safety
-  for (const record of records) {
-    if (record.tnf === 'well-known' && record.type === 'U') {
-      console.log('Found URL:', new TextDecoder().decode(record.payload))
-    }
-  }
-})
-
-// Writing NFC tags in the browser
-const writer = new NDEFWriter()
-const message = new NDEFMessage()
-  .add(createNDEFRecordWellKnownURI({ payload: 'https://example.com' }))
-
-await writer.write({
-  records: [{
-    recordType: 'url',
-    data: await message.toBytes()
-  }]
-})
 ```
 
 ### Reading NDEF Messages
@@ -298,10 +256,6 @@ Maintaining precise type information allows you to:
 - Ensure your code is more maintainable and less prone to runtime errors
 
 ## ❓ FAQ
-
-### Does this work with Web NFC?
-
-Yes! tsndef works perfectly with the browser's [Web NFC API](https://developer.mozilla.org/en-US/docs/Web/API/Web_NFC_API). You can use `NDEFReader` to read NFC tags and parse them with tsndef, or create messages with tsndef and write them using `NDEFWriter`. See the [Web NFC Browser Integration](#web-nfc-browser-integration) section for examples.
 
 ### Which record types are supported?
 

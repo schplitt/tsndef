@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.12.4",
-  "description": "Type-safe TypeScript/JS library to create & parse NFC NDEF messages. Works in browser (Web NFC) and Node.",
+  "description": "A modern, type-safe TypeScript library for creating and parsing NDEF (NFC Data Exchange Format) messages with full compile-time type checking and intelligent autocompletion.",
   "author": "schplitt",
   "license": "MIT",
   "homepage": "https://github.com/schplitt/tsndef#readme",
@@ -17,7 +17,6 @@
   "keywords": [
     "nfc",
     "ndef",
-    "web-nfc",
     "typescript",
     "javascript",
     "encoder",
