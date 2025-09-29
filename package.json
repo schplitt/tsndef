@@ -18,13 +18,19 @@
     "nfc",
     "ndef",
     "typescript",
+    "javascript",
+    "encoder",
+    "decoder",
+    "parser",
+    "uri-record",
+    "json",
     "type-safe",
     "nfc-data-exchange-format",
     "near-field-communication",
     "mobile",
     "android",
     "ios",
-    "web-nfc"
+    "browser"
   ],
   "exports": {
     ".": "./dist/index.js",

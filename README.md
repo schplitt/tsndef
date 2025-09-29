@@ -1,4 +1,4 @@
-# 📱 tsndef
+# tsndef — Type-safe TypeScript NDEF (NFC) library
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -6,6 +6,10 @@
 [![License][license-src]][license-href]
 
 A modern, type-safe TypeScript library for creating and parsing NDEF (NFC Data Exchange Format) messages with full compile-time type checking and intelligent autocompletion.
+
+- ✅ Type-safe records (URI, JSON, text, media…)
+- 🚀 Zero deps, tree-shakable ESM
+- 🧪 Well-tested parsing/serialization with robust errors
 
 ## ✨ Features
 
@@ -250,6 +254,29 @@ Maintaining precise type information allows you to:
 - Catch type errors at compile time
 - Leverage TypeScript's powerful type system for safer NFC operations
 - Ensure your code is more maintainable and less prone to runtime errors
+
+## ❓ FAQ
+
+### Which record types are supported?
+
+tsndef supports the most common NDEF record types:
+- **Well-Known**: URI records with automatic prefix optimization
+- **Media**: JSON, plain text, HTML, images (PNG/JPEG), video (MP4), audio (MPEG)
+
+All record types include full TypeScript type definitions for compile-time safety.
+
+### Is it safe to parse unknown records?
+
+Yes! Use `safeParseNDEFMessage()` for error-safe parsing that won't throw exceptions. Unknown record types are preserved with their raw payload accessible via `rawPayload()`, so you never lose data.
+
+### How is this different from other NDEF libraries?
+
+tsndef is the only NDEF library that provides:
+- **Full compile-time type safety** with TypeScript
+- **Intelligent type inference** that tracks exact record types
+- **Zero dependencies** and tree-shakable architecture
+- **Modern ES modules** with immutable-style API
+- **Comprehensive error handling** with both throwing and safe parsing options
 
 ## 🧪 Testing
 
