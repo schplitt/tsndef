@@ -1,3 +1,7 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
 catalogs:
   bundeling:
     tsdown: ^0.19.0

@@ -141,11 +141,11 @@ export async function constructBytesFromRecordInfo(info: RecordInfo): Promise<Ui
   const payloadLengthBytes = isShortRecord
     ? new Uint8Array([rawPayload.length])
     : new Uint8Array([
-      (rawPayload.length >> 24) & 0xFF, // first byte
-      (rawPayload.length >> 16) & 0xFF, // second byte
-      (rawPayload.length >> 8) & 0xFF, // third byte
-      rawPayload.length & 0xFF, // fourth byte
-    ])
+        (rawPayload.length >> 24) & 0xFF, // first byte
+        (rawPayload.length >> 16) & 0xFF, // second byte
+        (rawPayload.length >> 8) & 0xFF, // third byte
+        rawPayload.length & 0xFF, // fourth byte
+      ])
 
   // if id is not present the idLengthBytes is empty
   const idLengthBytes = !isIdPresent
