@@ -26,4 +26,4 @@ export interface NDEFRecordWellKnownURI<TPayload extends string = string> extend
 }
 
 export type NDEFRecordWellKnown
-    = NDEFRecordWellKnownURI
+  = NDEFRecordWellKnownURI
